@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Gourmet Coffee - Sistema de Recomendação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="header-title">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E8D5C8" stroke-width="2">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+                <h1>RecoCoffe</h1>
+            </div>
+            <p class="header-subtitle">Sistema de Recomendação de Cafés</p>
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Tabelas de Referência dos Clusters -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="text-align: center; font-size: 2rem; font-weight: bold; color: #FFFFFF; margin-bottom: 2rem;">
+                Perfis de Referência dos Clusters
+            </h2>
+
+            <div class="grid" style="gap: 2rem;">
+                <!-- Tabela Cluster 1 -->
+                <div class="card" style="background: linear-gradient(135deg, #5D4037 0%, #4E342E 100%); color: white;">
+                    <div
+                        style="text-align: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;"></div>
+                        <h3 style="font-size: 1.75rem; font-weight: bold; margin-bottom: 0.5rem;">Cluster 1</h3>
+                        <p style="font-size: 1.125rem; color: #E8D5C8;">Cafés de Seleção Especial</p>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem; color: rgba(255,255,255,0.8);">
+                            Cafés premium com valores acima da média
+                        </p>
+                    </div>
+
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: rgba(0,0,0,0.2);">
+                                <th
+                                    style="padding: 0.75rem; text-align: left; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                                    Atributo</th>
+                                <th
+                                    style="padding: 0.75rem; text-align: center; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                                    Valor Típico</th>
+                                <th
+                                    style="padding: 0.75rem; text-align: left; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                                    Característica</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Aroma</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFD700;">
+                                    7.7 - 8.2</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Intenso e complexo</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Sabor</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFD700;">
+                                    7.7 - 8.3</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Rico e balanceado</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Retrogosto</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFD700;">
+                                    7.7 - 8.2</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Persistente e agradável</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Acidez</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFD700;">
+                                    7.7 - 8.2</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Brilhante e viva</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Corpo</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFD700;">
+                                    7.7 - 8.1</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Médio a encorpado</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Equilíbrio</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFD700;">
+                                    7.7 - 8.3</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Harmonioso</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Uniformidade</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFD700;">
+                                    9.9 - 10.0</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Consistente</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; font-weight: 600;">Doçura</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFD700;">
+                                    10.0</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Doçura natural alta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div
+                        style="margin-top: 1.5rem; padding: 1rem; background-color: rgba(0,0,0,0.2); border-radius: 0.5rem; text-align: center;">
+                        <p style="font-size: 0.875rem; font-weight: 600;">💡 Dica de Teste</p>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.9;">
+                            Use valores entre 7.7-8.3 para características principais<br>
+                            e 9.9-10.0 para uniformidade e doçura
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tabela Cluster 2 -->
+                <div class="card" style="background: linear-gradient(135deg, #8B4513 0%, #6D3611 100%); color: white;">
+                    <div
+                        style="text-align: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;"></div>
+                        <h3 style="font-size: 1.75rem; font-weight: bold; margin-bottom: 0.5rem;">Cluster 2</h3>
+                        <p style="font-size: 1.125rem; color: #E8D5C8;">Cafés de Seleção do Tradicional</p>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem; color: rgba(255,255,255,0.8);">
+                            Cafés com características abaixo da média
+                        </p>
+                    </div>
+
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: rgba(0,0,0,0.2);">
+                                <th
+                                    style="padding: 0.75rem; text-align: left; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                                    Atributo</th>
+                                <th
+                                    style="padding: 0.75rem; text-align: center; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                                    Valor Típico</th>
+                                <th
+                                    style="padding: 0.75rem; text-align: left; font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                                    Característica</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Aroma</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFA500;">
+                                    7.0 - 7.3</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Suave a moderado</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Sabor</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFA500;">
+                                    7.0 - 7.3</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Simples e direto</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Retrogosto</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFA500;">
+                                    7.0 - 7.3</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Curto a moderado</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Acidez</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFA500;">
+                                    7.0 - 7.3</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Baixa a moderada</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Corpo</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFA500;">
+                                    7.0 - 7.3</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Leve a médio</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Equilíbrio</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFA500;">
+                                    7.0 - 7.3</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Menos harmonioso</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.75rem; font-weight: 600;">Uniformidade</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFA500;">
+                                    9.5 - 9.8</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Variação moderada</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem; font-weight: 600;"> Doçura</td>
+                                <td
+                                    style="padding: 0.75rem; text-align: center; font-size: 1.125rem; font-weight: bold; color: #FFA500;">
+                                    9.5 - 9.8</td>
+                                <td style="padding: 0.75rem; font-size: 0.875rem;">Doçura moderada</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div
+                        style="margin-top: 1.5rem; padding: 1rem; background-color: rgba(0,0,0,0.2); border-radius: 0.5rem; text-align: center;">
+                        <p style="font-size: 0.875rem; font-weight: 600;">💡 Dica de Teste</p>
+                        <p style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.9;">
+                            Use valores entre 7.0-7.3 para características principais<br>
+                            e 9.5-9.8 para uniformidade e doçura
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid">
+            <!-- Left Column - Parameters -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon-box"></div>
+                    <h2 class="card-title">Parâmetros do Café</h2>
+                </div>
+
+                <div id="sliders"></div>
+
+                <button class="analyze-btn" onclick="calculateCluster()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                    Analisar Café
+                </button>
+            </div>
+
+            <!-- Right Column - Results -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon-box">✨</div>
+                    <h2 class="card-title">Resultados da Análise</h2>
+                </div>
+
+                <div id="emptyState" class="empty-state">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(93, 64, 55, 0.3)"
+                        stroke-width="2">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                    </svg>
+                    <p>Insira os parâmetros do café e clique em "Analisar Café" para ver os resultados.</p>
+                </div>
+
+                <div id="results" class="hidden"></div>
+            </div>
+        </div>
+        <button class="analyze-btn" onclick="window.location.href='index.html'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            Voltar
+        </button>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p style="color: #E8D5C8; font-size: 0.875rem;">Trabalho de Análise de Dados e Aprendizado de Máquina</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

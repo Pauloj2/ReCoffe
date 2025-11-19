@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Gourmet Coffee - Análise de Dados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-title">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E8D5C8" stroke-width="2">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+                <h1>ReCoffe</h1>
+            </div>
+            <p class="header-subtitle">Sistema de Recomendação de Cafés</p>
+        </div>
+
+    </header>
+
+    <!-- Seção 2 - Trabalho + Workflow -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trabalho sobre Aprendizado Não-Supervisionado</h2>
+                <p>Uma análise completa utilizando o sistema Knime para descobrir padrões sensoriais em cafés, explorando
+                    clusters, perfis e comportamento dos atributos.</p>
+            </div>
+
+
+            <h3>Atributos Analisados</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Atributo</th>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Acidez</td>
+                        <td>Numérico</td>
+                        <td>Nível de acidez percebido</td>
+                    </tr>
+                    <tr>
+                        <td>Corpo</td>
+                        <td>Numérico</td>
+                        <td>Textura e sensação na boca</td>
+                    </tr>
+                    <tr>
+                        <td>Doçura</td>
+                        <td>Numérico</td>
+                        <td>Percepção de doçura natural</td>
+                    </tr>
+                    <tr>
+                        <td>Amargor</td>
+                        <td>Numérico</td>
+                        <td>Intensidade do amargor</td>
+                    </tr>
+                    <tr>
+                        <td>Aroma</td>
+                        <td>Numérico</td>
+                        <td>Intensidade e complexidade aromática</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>K-means Otimizado: Identificação do Número Ideal de Clusters (K=2)</h2>
+                <p>Após a análise das curvas de inércia e da performance dos agrupamentos, o melhor valor encontrado
+                    para o modelo foi k = 2, representando dois grandes grupos sensoriais de cafés.</p>
+            </div>
+
+            <div class="visualization-grid">
+                <div class="viz-card">
+                    <div class="viz-image">
+                       <img src="sactterPlot.png" alt="">
+                    </div>
+                    <h3>Sactter Plot</h3>
+                    <p>Análise da inércia para diferentes valores de K</p>
+                </div>
+                <div class="viz-card">
+                    <div class="viz-image">
+                        <img src="ScatterMatrix.png" alt="">
+                    </div>
+                    <h3>Scatter Matrix</h3>
+                    <p>Visualização da distribuição dos cafés nos clusters</p>
+                </div>
+                <div class="viz-card">
+                    <div class="viz-image">
+                        <img src="ComparacaoKmeans.png" alt="">
+                    </div>
+                    <h3>Valores Médios dos Clusters</h3>
+                    <p>Comparação dos atributos sensoriais entre clusters</p>
+                </div>
+            </div>
+
+            <h3>Características dos Clusters</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Cluster</th>
+                        <th>Perfil Sensorial</th>
+                        <th>Características Principais</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cluster 1</td>
+                        <td>Equilibrado & Suave</td>
+                        <td>Acidez média, corpo equilibrado, doçura pronunciada</td>
+                    </tr>
+                    <tr>
+                        <td>Cluster 2</td>
+                        <td>Intenso & Complexo</td>
+                        <td>Alta acidez, corpo encorpado, notas frutadas</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </section>
+
+    <!-- Seção 4 - Sistema de Recomendação -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experimente o Sistema de Recomendação de Cafés</h2>
+                <p>Com base no modelo treinado em KNIME utilizando 8 atributos sensoriais, o sistema classifica um novo
+                    café no cluster mais próximo e recomenda blends de perfil semelhante.</p>
+            </div>
+
+            <div class="recommendation-section">
+                <a href="analiseCluster.html" class="btn-recommendation">Acessar o Recomendador de Café</a>
+            </div>
+
+            <div class="content-cards">
+                <div class="card">
+                    <h3>Como Funciona</h3>
+                    <p>O sistema utiliza o modelo K-Means treinado para classificar novos cafés com base em seus
+                        atributos sensoriais, identificando o cluster mais adequado e sugerindo cafés similares.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Benefícios</h3>
+                    <ul>
+                        <li>Descoberta de novos cafés com perfis similares aos preferidos</li>
+                        <li>Recomendações baseadas em dados objetivos</li>
+                        <li>Exploração guiada do universo dos cafés especiais</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Trabalho de Análise de Dados e Aprendizado de Máquina</p>
+        </div>
+    </footer>
+</body>
+
+</html>
